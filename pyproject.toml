@@ -1,0 +1,15 @@
+[project]
+name = "stegaboo"
+version = "0.1.0"
+description = "A playful image steganography CLI using Typer and Rich"
+authors = ["Justin Cox <justincox.dev@gmail.com>"]
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "typer[all]",
+    "rich",
+    "pillow"
+]
+
+[project.scripts]
+stegaboo = "stegaboo.cli:app"
