@@ -2,6 +2,8 @@ import typer
 from pathlib import Path
 from rich import print
 from .config import get_output_path, set_output_path
+from .encode import encode_message
+from .decode import decode_message
 
 app = typer.Typer(help="Stegaboo CLI: Hide your secrets in plain sight.")
 
@@ -12,14 +14,16 @@ def encode(
     output_file: Path = typer.Option(None, "--output-file", "-o", help="Custom output file path"),
 ):
     """Encode a message into an image."""
-    print("🚧 [bold yellow]Encoding not yet implemented.[/bold yellow] 🚧")
+    encode_message(image_path, message, output_file)
     
 @app.command()
 def decode(
     image_path: Path
 ):
     """Decode a message from an image."""
-    print("🚧 [bold yellow]Decoding not yet implemented.[/bold yellow] 🚧")
+    message = decode_message(image_path)
+    print("\n[bold green]Decoded message:[/bold green]")
+    print(f"[yellow]{message}[/yellow]\n")
     
 @app.command()
 def where():

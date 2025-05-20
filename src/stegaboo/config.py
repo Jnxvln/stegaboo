@@ -6,8 +6,13 @@ SETTINGS_PATH = Path("settings.json")
 
 def load_settings():
     if SETTINGS_PATH.exists():
-        with SETTINGS_PATH.open("r") as f:
-            settings = json.load(f)
+        try:
+            with SETTINGS_PATH.open("r") as f:
+                content = f.read().strip()
+                if content:
+                    return json.loads(content)
+        except json.JSONDecodeError:
+            print("[red]Warning: settings.json is corrupted. Using defaults.[/red]")
     return {}
 
 def save_settings(settings: dict):
