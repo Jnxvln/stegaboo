@@ -1,26 +1,14 @@
 from PIL import Image
 from pathlib import Path
-from rich import print
 
 TERMINATOR = "~~~END~~~"
-
-def _bits_to_message(bits: str) -> str:
-    chars = [chr(int(bits[i:i+8], 2)) for i in range(0, len(bits), 8)]
-    message = ''.join(chars)
-    end_index = message.find(TERMINATOR)
-    if end_index != -1:
-        return message[:end_index]
-    return message  # fallback if no terminator found
-
 
 def decode_message(image_path: Path) -> str:
     image = Image.open(image_path)
 
-    # Warn if the image is JPEG
     if image_path.suffix.lower() in [".jpg", ".jpeg"]:
-        print("[yellow]Warning: JPEG is lossy. [/yellow][bold red]If this image was not encoded as a PNG originally, the hidden data may be corrupted.[/bold red]")
+        print("[yellow]Warning: JPEG is lossy.[/yellow] [bold red]If this image was not encoded as a PNG originally, the hidden data may be corrupted.[/bold red]")
 
-    # Convert to RGB if necessary
     if image.mode != 'RGB':
         image = image.convert('RGB')
 

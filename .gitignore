@@ -1,3 +1,6 @@
+# Ignore encoded test outputs
+tests/assets/encoded_*.png
+
 # Byte-compiled / cache files
 __pycache__/
 *.py[cod]
