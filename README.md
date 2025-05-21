@@ -82,7 +82,7 @@ Coming soon!
 
 ## ✨ Credits
 
-Created by [UncompiledSelf](https://github.com/Jnxvln) with inspiration, ghosts, and a little Rich magic 👻  
+Created by [UncompiledSelf](https://buymeacoffee.com/uncompiledself) with inspiration, ghosts, and a little Rich magic 👻  
 Powered by [Typer](https://typer.tiangolo.com/), [Rich](https://rich.readthedocs.io/), and [Pillow](https://python-pillow.org/)
 
 ## 👻 A Token for the Ghost
