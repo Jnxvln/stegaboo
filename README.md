@@ -12,6 +12,10 @@
 - Stylized Rich + Typer CLI output
 - Sample images included for quick testing
 - Helpful splash screen and command hints
+- Gracefully handles missing files and invalid input
+- Automatically creates `settings.json` on first use
+- Includes full test suite and sample encoded image
+- Built-in `--version` flag
 
 ---
 
@@ -73,11 +77,21 @@ stegaboo encode lil_boo.png "I see you, boo!" -o "outputs/encoded_boo.png"
 pytest
 ```
 
+This will run both functionality tests and error-handling tests to ensure encoding/decoding behaves correctly.
+
 ---
 
 ## 🛠️ Roadmap
 
-Coming soon!
+- [x] Core encode/decode commands
+- [x] Custom output file + settings fallback
+- [x] Sample files and onboarding splash
+- [x] Test suite and graceful error handling
+- [x] `--version` flag
+- [ ] Hidden command group (👁️)
+- [ ] Easter egg or secret unlockable path
+- [ ] Web or GUI companion
+
 ---
 
 ## ✨ Credits
