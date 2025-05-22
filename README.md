@@ -1,6 +1,6 @@
 # 👻 Stegaboo
 
-*A playful CLI tool for hiding harmless secrets in plain sight using image steganography.*
+### A playful CLI tool for hiding harmless secrets in plain sight using image steganography.
 
 ---
 
@@ -12,6 +12,13 @@
 - Stylized Rich + Typer CLI output
 - Sample images included for quick testing
 - Helpful splash screen and command hints
+
+---
+
+## ⚠️ Safety Notice
+
+Stegaboo is a playful tool for **non-sensitive** secrets only.  
+Do **NOT** use this to hide personal, private, or critical information. It's for fun, not for security.
 
 ---
 
@@ -57,13 +64,6 @@ stegaboo encode lil_boo.png "I see you, boo!"
 stegaboo decode outputs/note_boo.png --save-message "./secret_boo.txt"
 stegaboo encode lil_boo.png "I see you, boo!" -o "outputs/encoded_boo.png"
 ```
-
----
-
-## ⚠️ Safety Notice
-
-Stegaboo is a playful tool for **non-sensitive** secrets only.  
-Do **not** use this to hide personal, private, or critical information. It's for fun, not for security.
 
 ---
 

@@ -17,5 +17,5 @@ dependencies = [
 stegaboo = "stegaboo.cli:main"
 
 [build-system]
-requires = ["setuptools>=61.0"]
+requires = ["setuptools>=64", "wheel"]
 build-backend = "setuptools.build_meta"
