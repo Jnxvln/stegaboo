@@ -1,10 +1,20 @@
-from PIL import Image
+from PIL import Image, UnidentifiedImageError
 from pathlib import Path
+import typer
+from rich import print
 
 TERMINATOR = "~~~END~~~"
 
 def decode_message(image_path: Path) -> str:
-    image = Image.open(image_path)
+    """Decodes a hidden message from an image using Least Significant Bit (LSB) steganography."""
+    try:
+        image = Image.open(image_path)
+    except FileNotFoundError:
+        print(f"\n[bold red]❌ File not found:[/bold red] [not bold yellow]{image_path}[/not bold yellow]\n")
+        raise typer.Exit(code=1)
+    except UnidentifiedImageError:
+        print(f"\n[bold red]❌ Not a valid image file:[/bold red] [not bold yellow]{image_path}[/not bold yellow]\n")
+        raise typer.Exit(code=1)
 
     if image_path.suffix.lower() in [".jpg", ".jpeg"]:
         print("[yellow]Warning: JPEG is lossy.[/yellow] [bold red]If this image was not encoded as a PNG originally, the hidden data may be corrupted.[/bold red]")

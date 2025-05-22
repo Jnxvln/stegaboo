@@ -1,6 +1,9 @@
 # Ignore encoded test outputs
 tests/assets/encoded_*.png
 
+# Don't track the settings.json file
+settings.json
+
 # Byte-compiled / cache files
 __pycache__/
 *.py[cod]

@@ -1,4 +1,5 @@
-from PIL import Image
+import typer
+from PIL import Image, UnidentifiedImageError
 from pathlib import Path
 from .config import get_output_path
 from rich import print
@@ -13,9 +14,16 @@ def _message_to_bits(message: str) -> str:
     return ''.join(f"{ord(c):08b}" for c in message)
 
 def encode_message(image_path: Path, message: str, output_file: Path = None, force: bool = False):
-    """Encode a message into an image using Least Significant Bit (LSB) steganography."""
-    image = Image.open(image_path)
-    
+    """Encode a secret message into an image using Least Significant Bit (LSB) steganography."""
+    try:
+        image = Image.open(image_path)
+    except FileNotFoundError:
+        print(f"\n[bold red]❌ Image file [not bold yellow]'{image_path}'[/not bold yellow] [bold red]not found.[/bold red]\n")
+        raise typer.Exit(code=1)
+    except UnidentifiedImageError:
+        print(f"\n[bold red]❌ Not a valid image file:[/bold red] [not bold yellow]{image_path}[/not bold yellow]\n")
+        raise typer.Exit(code=1)
+        
     # Normalize the message to ASCII
     safe_message = normalize("NFKD", message).encode("ascii", "ignore").decode("ascii")
 
